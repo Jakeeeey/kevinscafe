@@ -14,7 +14,7 @@
         public function index(){
             $data['page_title'] = 'Movider';
 
-            //return view('pages/paypal_view', $data);
+             //return view('pages/paypal_view', $data);
         }
     }
 ?>
