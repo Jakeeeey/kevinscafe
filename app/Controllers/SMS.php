@@ -17,21 +17,23 @@ class SMS extends Controller
 	{
 		$data['page_title'] = 'SMS';
 
-		require_once 'vendor/autoload.php';
-		//use Twilio\Rest\Client;
+		// Update the path below to your autoload.php,
+    // see https://getcomposer.org/doc/01-basic-usage.md
+    require __DIR__ . '/twilio-php-main/src/Twilio/autoload.php';
 
-		$sid    = "ACd5dfeb75d394fa077ee7c4dab51eb0a4";
-		$token  = "b0a101049e646c333a5951b4e56f6423";
-		$twilio = new \Twilio\Rest\Client($sid, $token);
+    //use Twilio\Rest\Client;
 
-		$message = $twilio->messages
-			->create(
-				"+639510505308", // to
-				array(
-					"from" => "+15074739573",
-					"body" => "Your order from Kevin's Cafe is now preparing"
-				)
-			);
+    $sid    = "AC7648dfb32a2dac197bda27149652d476";
+    $token  = "0e568564c1447fd684aca98de15737fa";
+    $twilio = new Twilio\Rest\Client($sid, $token);
+
+    $message = $twilio->messages
+      ->create("+639510505308", // to
+        array(
+          "from" => "+15312345197",
+          "body" => "Your order is now preparing."
+        )
+      );
 
 			//print($message->sid);
 			echo "<pre>";
